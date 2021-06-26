@@ -6,7 +6,13 @@ class CategoriesSlider extends StatefulWidget {
 }
 
 class _CategoriesSliderState extends State<CategoriesSlider> {
-  List<String> lst = ["Electronic", "Appliances"];
+  List<dynamic> lst = [
+    ["Electronic", Icons.flash_on_outlined, "5  items"],
+    ["Clothes", Icons.login, "5  items"],
+    ["Appliances", Icons.flash_on_outlined, "5  items"],
+    ["House Holds", Icons.flash_on_outlined, "5  items"],
+    ["Others", Icons.flash_on_outlined, "5  items"],
+  ];
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -27,9 +33,53 @@ class _CategoriesSliderState extends State<CategoriesSlider> {
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: 15,
-              itemBuilder: (BuildContext context, int index) => Card(
-                child: Center(child: Text('Dummy Card Text')),
+              itemCount: lst.length,
+              itemBuilder: (BuildContext context, index) => Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(5),
+                      topRight: Radius.circular(5),
+                      bottomLeft: Radius.circular(5),
+                      bottomRight: Radius.circular(5)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 3,
+                      blurRadius: 3,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Icon(
+                      lst[index][1],
+                      size: 40.0,
+                      color: Colors.purple,
+                    ),
+                    Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${lst[index][0]}',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            '${lst[index][2]}',
+                            style: TextStyle(
+                              fontSize: 12,
+                            ),
+                          ),
+                        ]),
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
