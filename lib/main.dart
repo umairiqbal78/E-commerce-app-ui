@@ -1,5 +1,6 @@
-// import 'imageslider.dart';
+
 import 'package:ecom_app_ui/carouselSlider.dart';
+import 'package:ecom_app_ui/gridviewitems.dart';
 import 'package:flutter/material.dart';
 import 'slidertop.dart';
 import 'listviewslider.dart';
@@ -28,6 +29,7 @@ void main() => runApp(MaterialApp(
           SliderTop(),
           CarouselClass(),
           CategoriesSlider(),
+          GridViewItems(),
         ],
       ),
     )));
